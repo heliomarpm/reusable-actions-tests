@@ -1,11 +1,11 @@
-name: "Changelog & Release"
+name: "📜 Changelog & Release – Reusable Workflows"
 on:
   push:
     branches:
-      - main
-      - develop
+    - main
+    - develop
     paths-ignore:
-      - 'CHANGELOG.md'
+    - 'CHANGELOG.md'
   workflow_dispatch:
     inputs:
       create-release:
@@ -13,12 +13,22 @@ on:
         type: boolean
         default: false
 jobs:
-  changelog:
-    name: 📝 Update Changelog & Release
-    runs-on: ubuntu-latest
+  changelog-fixture:
     permissions:
       contents: write
-    
+    strategy:
+      fail-fast: false
+      matrix:
+        fixture:
+        - fixtures/node-no-tests
+        - fixtures/node-vitest
+        # - fixtures/node-jest
+        - fixtures/php-no-tests
+        - fixtures/php-phpunit
+        # - fixtures/dotnet-no-tests
+        # - fixtures/dotnet-xunit
+        # - fixtures/go-no-tests
+
     steps:
       # OBRIGATÓRIO: Clona o repositório com histórico completo para leitura de commits e tags
       - name: 📌 Checkout repository
@@ -31,4 +41,25 @@ jobs:
       - name: 📝 Update Changelog
         uses: heliomarpm/reusable-actions/actions/changelog@main
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+          project-path: ${{ matrix.fixture }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}      
+
+  changelog:
+    name: 📝 Update Changelog & Release
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+    # OBRIGATÓRIO: Clona o repositório com histórico completo para leitura de commits e tags
+    - name: 📌 Checkout repository
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+        token: ${{ secrets.GITHUB_TOKEN }}
+
+    # Executa o changelog
+    - name: 📝 Update Changelog
+      uses: heliomarpm/reusable-actions/actions/changelog@main
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}

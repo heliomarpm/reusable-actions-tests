@@ -1,8 +1,6 @@
-# reusable-actions-tests
+# Reusable Workflows – Test Suite
+
 Demos para validação do repo `reusable-actions`
-
-# Reusable Actions – Test Suite
-
 This repository validates the contracts of the reusable CI/CD actions.
 
 ## What is tested
