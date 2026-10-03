@@ -1,0 +1,25 @@
+name: "Changelog & Release"
+on:
+  push:
+    branches:
+      - main
+      - develop
+    paths-ignore:
+      - 'CHANGELOG.md'
+  workflow_dispatch:
+    inputs:
+      create-release:
+        description: 'Forçar criação de Git Tag e GitHub Release'
+        type: boolean
+        default: false
+jobs:
+  changelog:
+    name: 📝 Update Changelog & Release
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: 📝 Update Changelog
+        uses: heliomarpm/reusable-actions/actions/changelog@main
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}

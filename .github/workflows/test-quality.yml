@@ -1,0 +1,30 @@
+name: "🧪 Contract Tests – Reusable Actions"
+
+on:
+  workflow_dispatch:
+  pull_request:
+  push:
+    branches: [develop, feature**, feat**. hotfix**, fix**]
+
+jobs:
+  contract-test:
+    strategy:
+      fail-fast: false
+      matrix:
+        fixture:
+          - fixtures/node-no-tests
+          - fixtures/node-vitest
+          - fixtures/node-jest
+          - fixtures/php-no-tests
+          - fixtures/php-phpunit
+          # - fixtures/dotnet-no-tests
+          # - fixtures/dotnet-xunit
+          # - fixtures/go-no-tests
+
+    # Chamada correta de Reusable Workflow (no nível do job, sem runs-on e sem steps):
+    uses: heliomarpm/reusable-actions/.github/workflows/ci-quality-gate.yml@main
+    with:
+      project-path: ${{ matrix.fixture }}
+      coverage-min: 85
+      coverage-mode: info
+
