@@ -1,4 +1,4 @@
-name: "📜 Changelog & Release"
+name: "📜 Contract Tests – Changelog"
 
 on:
   push:
@@ -8,22 +8,17 @@ on:
     paths-ignore:
       - '**/CHANGELOG.md'
   workflow_dispatch:
-    inputs:
-      create-release:
-        description: 'Forçar criação de Git Tag e GitHub Release'
-        type: boolean
-        default: false
 
 jobs:
   changelog:
-    name: 📝 Update Changelog & Release
+    name: 📝 Update Changelog
     runs-on: ubuntu-latest
     permissions:
       contents: write
 
     steps:
       - name: 📌 Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           fetch-depth: 0
           token: ${{ secrets.GITHUB_TOKEN }}

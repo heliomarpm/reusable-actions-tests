@@ -1,0 +1,27 @@
+name: "🔀 Contract Tests – Pull Request"
+
+on:
+  workflow_run:
+    workflows: ["🧪 Contract Tests – Quality Gate"]
+    types:
+      - completed
+  workflow_dispatch:
+    inputs:
+      strategy:
+        description: 'Estratégia de PR (gitflow | trunk | develop)'
+        required: false
+        default: 'gitflow'
+
+jobs:
+  pull-request:
+    if: >
+      ${{
+        github.event_name == 'workflow_dispatch' ||
+        (github.event.workflow_run.conclusion == 'success' &&
+         github.event.workflow_run.head_branch != 'main')
+      }}
+    uses: heliomarpm/reusable-actions/.github/workflows/cd-pull-request.yml@main
+    with:
+      strategy: ${{ inputs.strategy || 'gitflow' }}
+    secrets:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
