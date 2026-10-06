@@ -11,4 +11,3 @@ All notable changes to this project will be documented in this file.
 
 ### 🔄 Other Changes
 - Initial commit ([d6d53b2](https://github.com/heliomarpm/reusable-actions-tests/commit/d6d53b28d19dcce874ccc4f463d8b84d11be253d))
-

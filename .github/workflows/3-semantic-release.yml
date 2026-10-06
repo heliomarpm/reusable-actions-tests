@@ -1,0 +1,26 @@
+name: "3. Semantic Release"
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+    inputs:
+      dry-run:
+        description: 'Modo Dry-Run (não publica)'
+        type: boolean
+        default: false
+      strict-mode:
+        description: 'Validar Conventional Commits rigorosamente'
+        type: boolean
+        default: true
+
+jobs:
+  release:
+    uses: heliomarpm/reusable-actions/.github/workflows/cd-semantic-release.yml@main
+    secrets:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    with:
+      project-path: '.'
+      semantic-release-dry-run: ${{ inputs.dry-run || false }}
+      strict-conventional-commits: ${{ inputs.strict-mode != false }}

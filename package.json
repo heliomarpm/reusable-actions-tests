@@ -1,0 +1,9 @@
+{
+  "name": "reusable-actions-tests",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Centralized contract tests and multi-stack fixtures for reusable-actions",
+  "scripts": {
+    "test": "echo \"Running all fixtures...\""
+  }
+}
