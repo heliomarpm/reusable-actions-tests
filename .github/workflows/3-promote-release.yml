@@ -1,0 +1,15 @@
+name: "Promote Release to Main"
+
+on:
+  push:
+    branches:
+      - main
+      - "release-*"
+
+jobs:
+  promote:
+    uses: heliomarpm/reusable-actions/.github/workflows/cd-pull-request.yml@main
+    with:
+      strategy: 'gitflow'
+    secrets:
+      GH_TOKEN: ${{ secrets.GH_TOKEN }}

@@ -1,8 +1,8 @@
-name: "🔀 Contract Tests – Pull Request"
+name: "2. Pull Request"
 
 on:
   workflow_run:
-    workflows: ["🧪 Contract Tests – Quality Gate"]
+    workflows: ["1. Quality Gate"]
     types:
       - completed
   workflow_dispatch:

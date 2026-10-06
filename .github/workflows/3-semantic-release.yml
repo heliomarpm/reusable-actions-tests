@@ -1,6 +1,9 @@
-name: "🚀 Contract Tests – Release"
+name: "3. Semantic Release"
 
 on:
+  push:
+    branches:
+      - main
   workflow_dispatch:
     inputs:
       dry-run:
@@ -11,9 +14,6 @@ on:
         description: 'Validar Conventional Commits rigorosamente'
         type: boolean
         default: true
-  push:
-    branches:
-      - main
 
 jobs:
   release:

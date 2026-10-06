@@ -1,4 +1,4 @@
-name: "🧪 Contract Tests – Quality Gate"
+name: "1. Quality Gate"
 
 on:
   workflow_dispatch:
