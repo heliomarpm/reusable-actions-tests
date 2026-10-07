@@ -3,6 +3,11 @@
 All notable changes to this project will be documented in this file.
 
 
+## [v0.0.1] - 2026-10-07
+
+### ♻️ Code Refactoring
+- **workflows**: ♻️ atualizar referências para reusable-workflows ([74a3524](https://github.com/heliomarpm/reusable-workflows-tests/commit/74a35243332d6e80a9a9956ea4491a885ee7cf0e))
+
 ## [v1.0.0] - 2026-10-06
 
 ### ⚠️ Breaking Changes
