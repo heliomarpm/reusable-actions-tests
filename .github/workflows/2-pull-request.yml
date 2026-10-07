@@ -27,7 +27,7 @@ jobs:
         (github.event.workflow_run.conclusion == 'success' &&
          github.event.workflow_run.head_branch != 'main')
       }}
-    uses: heliomarpm/reusable-actions/.github/workflows/cd-pull-request.yml@main
+    uses: heliomarpm/reusable-workflows/.github/workflows/cd-pull-request.yml@main
     with:
       strategy: ${{ inputs.strategy || 'gitflow' }}
     secrets:
