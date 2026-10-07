@@ -8,7 +8,7 @@ on:
 
 jobs:
   promote:
-    uses: heliomarpm/reusable-actions/.github/workflows/cd-pull-request.yml@main
+    uses: heliomarpm/reusable-workflows/.github/workflows/cd-pull-request.yml@main
     with:
       strategy: 'gitflow'
     secrets:

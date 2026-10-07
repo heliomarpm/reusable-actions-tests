@@ -1,6 +1,6 @@
 # 🧪 Reusable Workflows – Test Suite & Contract Tests
 
-Repositório central de validação dos contratos e workflows reutilizáveis da biblioteca [heliomarpm/reusable-actions](https://github.com/heliomarpm/reusable-actions).
+Repositório central de validação dos contratos e workflows reutilizáveis da biblioteca [heliomarpm/reusable-workflows](https://github.com/heliomarpm/reusable-workflows).
 
 ## 🎯 O que é testado neste repositório
 

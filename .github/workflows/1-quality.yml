@@ -26,7 +26,7 @@ jobs:
           # - fixtures/dotnet-xunit
           # - fixtures/go-no-tests
 
-    uses: heliomarpm/reusable-actions/.github/workflows/ci-quality-gate.yml@main
+    uses: heliomarpm/reusable-workflows/.github/workflows/ci-quality-gate.yml@main
     with:
       project-path: ${{ matrix.fixture }}
       coverage-min: 80

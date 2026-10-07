@@ -1,8 +1,8 @@
 {
-  "name": "reusable-actions-tests",
+  "name": "reusable-workflows-tests",
   "version": "1.0.0",
   "private": true,
-  "description": "Centralized contract tests and multi-stack fixtures for reusable-actions",
+  "description": "Centralized contract tests and multi-stack fixtures for reusable-workflows",
   "scripts": {
     "test": "echo \"Running all fixtures...\""
   }
